@@ -7,7 +7,7 @@ import org.scalatest.{BeforeAndAfter, FunSuite}
 /**
   * Created by Lev_Khacheresiantc on 8/23/2016.
   */
-class CalculationProcessorTest extends FunSuite  {
+class CalculationProcessorTest extends FunSuite {
 
   var conf: SparkConf = new SparkConf().setAppName("scala-test").setMaster("local")
   var sc: SparkContext = new SparkContext(conf)
@@ -36,8 +36,8 @@ class CalculationProcessorTest extends FunSuite  {
     val dataForTest = sc.parallelize(Seq(("ip1", 500L), ("ip1", 100L), ("ip2", 0L), ("ip3", 1500L), ("ip3", 1500L)))
     val averageAndTotalByIp = processor.calculateAverageAndTotalBytes(dataForTest).collect()
 
-    assertEquals(averageAndTotalByIp(0), ("ip3", (3000L, 1500.00)))
-    assertEquals(averageAndTotalByIp(1), ("ip1", (600L, 300.00)))
-    assertEquals(averageAndTotalByIp(2), ("ip2", (0L, 0.00)))
+    assertEquals(averageAndTotalByIp(0), ("ip3", (1500.00, 3000)))
+    assertEquals(averageAndTotalByIp(1), ("ip1", (300.00, 600)))
+    assertEquals(averageAndTotalByIp(2), ("ip2", (0.00, 0)))
   }
 }

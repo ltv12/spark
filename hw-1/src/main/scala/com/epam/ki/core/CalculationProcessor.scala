@@ -9,12 +9,12 @@ import org.apache.spark.rdd.RDD
   */
 class CalculationProcessor {
 
-  def calculateAverageAndTotalBytes(rdd: RDD[(String, Long)]): RDD[(String, (Long, Double))] = {
+  def calculateAverageAndTotalBytes(rdd: RDD[(String, Long)]): RDD[(String, (Double, Long))] = {
     rdd.aggregateByKey((0L, 0))(
       (acc, v) => (acc._1 + v, acc._2 + 1),
       (acc1, acc2) => (acc1._1 + acc2._1, acc1._2 + acc2._2)
-    ).mapValues { case (size, count) => (size, size / count.toDouble) }
-      .sortBy({ case (_, (size, _)) => size }, ascending = false)
+    ).mapValues { case (total, size) => (total / size.toDouble, total) }
+      .sortBy({ case (_, (_, total)) => total }, ascending = false)
   }
 
   def parseLogsWithStatistics(data: RDD[String], statistics: Map[String, Accumulator[Int]]): RDD[(String, Long)] = {

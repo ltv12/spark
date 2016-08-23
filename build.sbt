@@ -20,14 +20,15 @@ lazy val hw1 = (project in file("hw-1"))
     libraryDependencies ++= Seq(
       "eu.bitwalker" % "UserAgentUtils" % "1.14" % "provided"
     )
-    //mainClass in (Compile, run) := Some("com.epam.ki.test.HomeWork1")
   )
 
 lazy val hw2 = (project in file("hw-2"))
   .settings(commonSettings: _*)
   .settings(
-    name := "spark-hw-2"
-    //mainClass in (Compile, run) := Some("com.epam.ki.test.HomeWork1")
+    name := "spark-hw-2",
+    libraryDependencies ++= Seq(
+      "org.apache.spark" %% "spark-hive" % "1.6.0" % "provided"
+    )
   )
 
 lazy val hw3 = (project in file("hw-3"))
