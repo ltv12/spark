@@ -7,7 +7,7 @@ import org.scalatest.{BeforeAndAfter, FunSuite}
 /**
   * Created by Lev_Khacheresiantc on 8/23/2016.
   */
-class CalculationProcessorTest extends FunSuite with BeforeAndAfter {
+class CalculationProcessorTest extends FunSuite  {
 
   var conf: SparkConf = new SparkConf().setAppName("scala-test").setMaster("local")
   var sc: SparkContext = new SparkContext(conf)

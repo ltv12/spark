@@ -31,10 +31,11 @@ object Driver {
     val averageAndTotalByIp = processor.calculateAverageAndTotalBytes(parsedLogs)
 
     averageAndTotalByIp.take(5).foreach(println)
-    browserStatistic.foreach(println)
     averageAndTotalByIp
       .map({ case (ip, (size, avr)) => Array(ip, size, avr).mkString(",") })
       .saveAsTextFile(s"${targetFile}_result")
+    browserStatistic.foreach(println)
+
   }
 
 
