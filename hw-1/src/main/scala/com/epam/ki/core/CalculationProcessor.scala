@@ -14,7 +14,7 @@ class CalculationProcessor {
       (acc, v) => (acc._1 + v, acc._2 + 1),
       (acc1, acc2) => (acc1._1 + acc2._1, acc1._2 + acc2._2)
     ).mapValues { case (total, size) => (total / size.toDouble, total) }
-      .sortBy({ case (_, (_, total)) => total }, ascending = false)
+      .sortBy({ case (key, (avr, total)) => total }, ascending = false)
   }
 
   def parseLogsWithStatistics(data: RDD[String], statistics: Map[String, Accumulator[Int]]): RDD[(String, Long)] = {

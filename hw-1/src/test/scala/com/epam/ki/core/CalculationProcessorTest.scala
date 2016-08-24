@@ -2,16 +2,26 @@ package com.epam.ki.core
 
 import org.apache.spark.{SparkConf, SparkContext}
 import org.junit.Assert._
-import org.scalatest.{BeforeAndAfter, FunSuite}
+import org.scalatest.{BeforeAndAfter, BeforeAndAfterAll, BeforeAndAfterEach, FunSuite}
 
 /**
   * Created by Lev_Khacheresiantc on 8/23/2016.
   */
-class CalculationProcessorTest extends FunSuite {
+class CalculationProcessorTest extends FunSuite with BeforeAndAfterEach {
 
-  var conf: SparkConf = new SparkConf().setAppName("scala-test").setMaster("local")
-  var sc: SparkContext = new SparkContext(conf)
-  var processor: CalculationProcessor = new CalculationProcessor
+  var sc: SparkContext = _
+  var processor: CalculationProcessor = _
+
+  override def beforeEach() {
+    val conf = new SparkConf().setAppName("scala-test").setMaster("local")
+    sc = new SparkContext(conf)
+    processor = new CalculationProcessor
+  }
+
+  override def afterEach(): Unit = {
+    sc.stop()
+  }
+
 
   test("checks transformation and statistics") {
     val listDataToTest = Seq("ip1 - - [28/Apr/2011:02:17:18 -0400] \"GET a.html HTTP/1.1\" 200 500 \"-\" \"ichiro/4.0 (http://help.goo.ne.jp/door/crawler.html)\"",

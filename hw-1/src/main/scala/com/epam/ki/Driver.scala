@@ -15,7 +15,7 @@ import org.apache.spark.{Accumulator, SparkConf, SparkContext}
 
 object Driver {
   def main(args: Array[String]) {
-    if (args.length != 2) throw new IllegalArgumentException("You have to specify output and input directories")
+    require(args.length == 2, "You have to specify output and input directories")
 
     val conf = new SparkConf().setAppName("Access Log Parser")
     val sc = new SparkContext(conf)
