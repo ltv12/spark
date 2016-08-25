@@ -20,7 +20,7 @@ datasets from [here](http://stat-computing.org/dataexpo/2009/the-data.html)
 (load only year 2007) and [here](http://stat-computing.org/dataexpo/2009/supplemental-data.html)
 (load Airports and Carrier Codes).
 Then put this data into **HDFS** and use **Hive** and use this [scripts](https://github.com/ltv12/hive/tree/master/hive/hw-1/scripts).
-with prefix **create_**. Don't forget to add suffix **_orc** to table names in this scripts or use this
+with prefix **create_** to create tables. Don't forget to add suffix **_orc** to table names in this scripts or use
 [script](https://github.com/ltv12/hive/blob/master/hive/hw-4/scripts/scheme_ORC.sql) to create table with **_orc**
 suffix in ORC format.
 
