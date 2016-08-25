@@ -27,7 +27,7 @@ lazy val hw2 = (project in file("hw-2"))
   .settings(
     name := "spark-hw-2",
     libraryDependencies ++= Seq(
-      "org.apache.spark" %% "spark-hive" % "1.6.0" % "provided"
+      "org.apache.spark" %% "spark-hive" % "1.6.0"
     )
   )
 
