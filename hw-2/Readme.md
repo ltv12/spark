@@ -8,7 +8,7 @@
 *  Run jar file using spark-submit :
     * ``` spark-submit --jars /<path_to_jar>/spark-hw-2_2.10-1.0.jar some_arg ```
 
-##### Allowed some arguments from this list :
+##### As argument allowed either :
 
 * **Query1** - Count total number of flights per carrier in 2007
 * **Query2** - The total number of flights served in Jun 2007 by NYC
