@@ -1,7 +1,8 @@
 ###Building and deploy instruction
 
 *  Load [Spark project](https://github.com/ltv12/spark) from gitHub
-*  Build project using **SBT** (Scala Build tool)
+* Build project using **SBT** (Scala Build tool)
+    * To build only hw1 project use ```sbt project hw1```
     * ``` sbt clean package ```
 * Get spark-hw-2.2.10-1.0.jar from ***<project_home>/hw-2/target/scala/*** file from local machine to HDP
 * Get **UserAgentUtils-1.14.jar** from local maven repository
