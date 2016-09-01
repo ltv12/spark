@@ -3,6 +3,8 @@ package com.epam.ki
 import com.epam.ki.commands.QueryCommands
 import com.epam.ki.commands.QueryCommands._
 import com.epam.ki.processors.QueryProcessor
+import org.apache.spark.sql.Row
+import org.apache.spark.sql.types.{IntegerType, StringType, StructField, StructType}
 import org.apache.spark.{SparkConf, SparkContext}
 
 

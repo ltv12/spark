@@ -34,7 +34,11 @@ lazy val hw2 = (project in file("hw-2"))
 lazy val hw3 = (project in file("hw-3"))
   .settings(commonSettings: _*)
   .settings(
-    name := "spark-hw-3"
+    name := "spark-hw-3",
+    libraryDependencies ++= Seq(
+      "org.apache.spark" %% "spark-mllib" % "1.6.0",
+      "com.databricks" % "spark-csv_2.10" % "1.4.0"
+    )
     //mainClass in (Compile, run) := Some("com.epam.ki.test.HomeWork1")
   )
 
