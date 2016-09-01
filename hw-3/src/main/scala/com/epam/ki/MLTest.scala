@@ -19,10 +19,10 @@ import org.apache.spark.{SparkConf, SparkContext}
   */
 
 
-object TestMain {
+object MLTest {
   Logger.getLogger("org.apache.spark").setLevel(Level.OFF)
 
-  val LOG: Logger = Logger.getLogger(TestMain.getClass)
+  val LOG: Logger = Logger.getLogger(MLTest.getClass)
 
   val FEATURES_COL = "features"
   val CATEGORICAL_COLUMNS = (2 to 4).toArray[Int] ++ (7 to 14).toArray[Int] ++ (16 to 20).toArray[Int]

@@ -1,11 +1,8 @@
 package com.epam.ki.Utils
 
-import org.apache.spark.SparkContext
 import org.apache.spark.ml.feature.OneHotEncoder
-import org.apache.spark.rdd.RDD
+import org.apache.spark.sql.types.{LongType, StructField, StructType}
 import org.apache.spark.sql.{DataFrame, Row, SQLContext}
-import org.apache.spark.sql.functions._
-import org.apache.spark.sql.types.{DoubleType, LongType, StructField, StructType}
 
 /**
   * Created by Lev_Khacheresiantc on 9/1/2016.
