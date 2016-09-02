@@ -9,6 +9,7 @@ import org.apache.spark.ml.feature.VectorAssembler
 import org.apache.spark.ml.tuning.{CrossValidator, ParamGridBuilder}
 import org.apache.spark.mllib.evaluation.BinaryClassificationMetrics
 import org.apache.spark.mllib.linalg.Vector
+import org.apache.spark.mllib.stat.{MultivariateStatisticalSummary, Statistics}
 import org.apache.spark.sql.types.{StructType, _}
 import org.apache.spark.sql.{Row, SQLContext}
 import org.apache.spark.{SparkConf, SparkContext}
@@ -48,10 +49,10 @@ object MLTest {
     val utils = new CommonUtils(sqlContext)
 
 
-    val features = utils.getDataFrameFrom(s"$filesLocation$DATA_FILE_NAME", FEATURES_SCHEMA)
+    val features = utils.getDataFrameFrom(s"$filesLocation/$DATA_FILE_NAME", FEATURES_SCHEMA)
     LOG.info(s" Features size = ${features.count()}")
 
-    val labels = utils.getDataFrameFrom(s"$filesLocation$LABELS_FILE_NAME", LABELS_SCHEMA)
+    val labels = utils.getDataFrameFrom(s"$filesLocation/$LABELS_FILE_NAME", LABELS_SCHEMA)
     LOG.info(s"Labels size = ${labels.count()}")
 
     val (trainingDF, testDF) = utils.preparedDataForModel(features, labels, CATEGORICAL_COLUMNS)
