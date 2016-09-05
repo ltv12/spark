@@ -79,7 +79,7 @@ object MLTest {
       .setEstimator(pipeline)
       .setEvaluator(new BinaryClassificationEvaluator)
       .setEstimatorParamMaps(paramGrid)
-      .setNumFolds(2)
+      .setNumFolds(5)
 
     // Run cross-validation, and choose the best set of parameters.
     LOG.info("Train model")
